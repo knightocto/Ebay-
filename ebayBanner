@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your eBay Store</title>
+    <style>
+        #banner-container {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            overflow: hidden;
+        }
+        #banner {
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="banner-container">
+        <img id="banner" src="" alt="BannerNAVO">
+    </div>
+
+    <script>
+        var banners = [
+            "URL_TO_FIRST_BANNER",
+            "URL_TO_SECOND_BANNER",
+            "URL_TO_THIRD_BANNER",
+            // Add more banner URLs as needed
+        ];
+        var currentIndex = 0;
+        var bannerElement = document.getElementById("banner");
+
+        function rotateBanner() {
+            bannerElement.style.opacity = 0; // Fade out
+            currentIndex = (currentIndex + 1) % banners.length;
+            setTimeout(function () {
+                bannerElement.src = banners[currentIndex];
+                bannerElement.style.opacity = 1; // Fade in
+            }, 1000); // Adjust the duration as needed (in milliseconds)
+        }
+
+        setInterval(rotateBanner, 5000); // Change banner every 1 seconds (adjust as needed)
+    </script>
+</body>
+</html>
